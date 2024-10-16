@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,8 @@ body {
 .footer {
   text-align: center;
   padding: 1em 0;
-=======
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -60,5 +60,4 @@ body {
 
 .read-the-docs {
   color: #888;
->>>>>>> f91209ffa00e2b3c94baa2e477a70357793fac7e
 }
