@@ -1,0 +1,70 @@
+.sort-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sort-btn {
+    background-color: #007bff; /* Blå färg */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .sort-options {
+    position: absolute;
+    background-color: white; /* Vit bakgrund */
+    border: 1px solid #ccc; /* Grå kantlinje */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: 5px;
+    padding: 10px 0;
+  }
+  
+  .sort-options button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .sort-options button:hover {
+    background-color: #f1f1f1; /* Ljusgrå bakgrund på hover */
+  }
+  .sort-container {
+    display: flex;
+    justify-content: center; /* Centrera horisontellt */
+    align-items: center; /* Centrera vertikalt */
+    margin: 20px 0; /* Lite marginal runt */
+}
+
+.sort-btn {
+    background-color: #28a745; /* Blå färg */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Gör knappen mer responsiv vid hover */
+}
+
+.sort-btn:hover {
+    background-color: #218838; /* Mörkare blå på hover */
+}
+
+.sort-options {
+    position: absolute;
+    background-color: white; /* Vit bakgrund */
+    border: 1px solid #ccc; /* Grå kantlinje */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: 5px;
+    padding: 10px 0;
+}
