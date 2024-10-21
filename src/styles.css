@@ -18,21 +18,9 @@ main {
     text-align: center;
 }
 
-.footer {
-    background: #18d664;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed; 
-    bottom: 0;
-    left: 0; 
-    right: 0; 
-    width: 100%;
-}
-
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     padding: 20px;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddItem from './Additem'; // Korrigera importen här
+import AddItem from './Additem'; 
 
 const AdminPanel = () => {
     const [items, setItems] = useState([]);

@@ -4,7 +4,7 @@
   }
   
   .sort-btn {
-    background-color: #007bff; /* Blå färg */
+    background-color: #007bff; 
     color: white;
     border: none;
     padding: 10px 15px;
@@ -15,8 +15,8 @@
   
   .sort-options {
     position: absolute;
-    background-color: white; /* Vit bakgrund */
-    border: 1px solid #ccc; /* Grå kantlinje */
+    background-color: white; 
+    border: 1px solid #ccc; 
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
@@ -34,34 +34,34 @@
   }
   
   .sort-options button:hover {
-    background-color: #f1f1f1; /* Ljusgrå bakgrund på hover */
+    background-color: #f1f1f1; 
   }
   .sort-container {
     display: flex;
-    justify-content: center; /* Centrera horisontellt */
-    align-items: center; /* Centrera vertikalt */
-    margin: 20px 0; /* Lite marginal runt */
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px 0; 
 }
 
 .sort-btn {
-    background-color: #28a745; /* Blå färg */
+    background-color: #28a745; 
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
-    transition: background-color 0.3s; /* Gör knappen mer responsiv vid hover */
+    transition: background-color 0.3s; 
 }
 
 .sort-btn:hover {
-    background-color: #218838; /* Mörkare blå på hover */
+    background-color: #218838; 
 }
 
 .sort-options {
     position: absolute;
-    background-color: white; /* Vit bakgrund */
-    border: 1px solid #ccc; /* Grå kantlinje */
+    background-color: white; 
+    border: 1px solid #ccc; 
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;

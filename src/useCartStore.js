@@ -4,10 +4,10 @@ import { persist } from "zustand/middleware";
 const storage = {
   getItem: (name) => {
     const item = localStorage.getItem(name);
-    return item ? JSON.parse(item) : undefined; // Deserialisera
+    return item ? JSON.parse(item) : undefined; 
   },
   setItem: (name, value) => {
-    localStorage.setItem(name, JSON.stringify(value)); // Serialisera
+    localStorage.setItem(name, JSON.stringify(value)); 
   },
   removeItem: (name) => {
     localStorage.removeItem(name);
@@ -22,14 +22,14 @@ const useCartStore = create(
         set((state) => {
           const existingItem = state.cartItems.find((i) => i.id === item.id);
           if (existingItem) {
-            // Öka kvantiteten om produkten redan finns
+            
             return {
               cartItems: state.cartItems.map((i) =>
                 i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
               ),
             };
           } else {
-            // Lägg till ny produkt med kvantitet 1 om den inte finns
+            
             return {
               cartItems: [...state.cartItems, { ...item, quantity: 1 }],
             };
@@ -44,7 +44,7 @@ const useCartStore = create(
                 ? { ...item, quantity: item.quantity + change }
                 : item
             )
-            .filter((item) => item.quantity > 0), // Ta bort produkten om kvantiteten är noll
+            .filter((item) => item.quantity > 0), 
         }));
       },
       removeFromCart: (id) => {
@@ -55,8 +55,8 @@ const useCartStore = create(
       clearCart: () => set({ cartItems: [] }),
     }),
     {
-      name: "cart-storage", // Namn på lagringsobjektet under vilket tillståndet ska sparas
-      storage: storage, // Använder anpassad lagringskonfiguration
+      name: "cart-storage", 
+      storage: storage, 
     }
   )
 );
