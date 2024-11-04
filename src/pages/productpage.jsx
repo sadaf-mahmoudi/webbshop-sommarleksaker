@@ -53,9 +53,9 @@ const ProductPage = () => {
                 {sortedProducts.length > 0 ? (
                     sortedProducts.map(product => (
                         <div className="product-item" key={product.id}>
-                            <img src={product.image} alt={product.name} />
                             <h2>{product.name}</h2>
-                            <p>Pris: {product.price} kr</p>
+                            <img src={product.image} alt={product.name} />
+                            <p> {product.price} kr</p>
                             <button 
                                 className="add-to-cart-button" 
                                 onClick={() => addToCart({ ...product, quantity: 1 })} 
