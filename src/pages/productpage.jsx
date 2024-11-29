@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { collection, query, onSnapshot } from 'firebase/firestore';
+// Ändra denna rad:
+import { db } from '../component/firebase';  // Uppdaterad sökväg
 import useCartStore from '../useCartStore';
-import SortBy from '../component/SortBy'; 
-import './productpage.css'; 
+import SortBy from '../component/SortBy';
+import './productpage.css';
 
 const ProductPage = () => {
     const [products, setProducts] = useState([]);
@@ -10,38 +13,28 @@ const ProductPage = () => {
     const { addToCart } = useCartStore();
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const q = query(collection(db, 'products'));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
             try {
-                const response = await fetch(`https://firestore.googleapis.com/v1/projects/webbshop-sommarleksaker/databases/(default)/documents/products`);
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const data = await response.json();
-
-                console.log('Vad finns i datan?', data.documents[0])
-                if (data.documents && data.documents.length > 0) {
-                    const productsList = data.documents.map(doc => ({
-                        id: doc.name.split('/').pop(),
-                        name: doc.fields.Name?.stringValue || 'Ingen namn tillgänglig',
-                        price: doc.fields.Price?.integerValue || 0, 
-                        image: doc.fields.image?.stringValue || ''
-                    }));
-                    setProducts(productsList);
-                    setSortedProducts(productsList); 
-                } else {
-                    throw new Error("Ingen produktdata hittades.");
-                }
+                const productsList = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    name: doc.data().Name,
+                    price: doc.data().Price,
+                    image: doc.data().image
+                }));
+                setProducts(productsList);
+                setSortedProducts(productsList);
             } catch (error) {
-                console.error("Det gick inte att hämta produkterna:", error);
-                setError(error.message);
+                setError('Kunde inte hämta produkter');
+                console.error(error);
             }
-        };
+        });
 
-        fetchProducts();
+        return () => unsubscribe();
     }, []);
 
     const handleSort = (sortedList) => {
-        setSortedProducts(sortedList); 
+        setSortedProducts(sortedList);
     };
 
     return (
@@ -54,18 +47,25 @@ const ProductPage = () => {
                     sortedProducts.map(product => (
                         <div className="product-item" key={product.id}>
                             <h2>{product.name}</h2>
-                            <img src={product.image} alt={product.name} />
-                            <p> {product.price} kr</p>
+                            <img 
+                                src={product.image} 
+                                alt={product.name}
+                                onError={(e) => {
+                                    console.error('Bildladdningsfel:', product.image);
+                                    e.target.src = 'https://via.placeholder.com/200x200?text=Bild+saknas';
+                                }}
+                            />
+                            <p>{product.price} kr</p>
                             <button 
-                                className="add-to-cart-button" 
-                                onClick={() => addToCart({ ...product, quantity: 1 })} 
+                                className="add-to-cart-button"
+                                onClick={() => addToCart({ ...product, quantity: 1 })}
                             >
                                 +
                             </button>
                         </div>
                     ))
                 ) : (
-                    <p>.</p>
+                    <p>Laddar produkter...</p>
                 )}
             </div>
         </div>

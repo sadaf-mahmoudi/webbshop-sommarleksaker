@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
     return (
         <footer className="footer">
-            <p>Kontakt:Telefonnummer: 0736180999</p>
+            <p>Kontakt: Telefonnummer: 0736180999</p>
             <p>© 2024 Sommarleksaker</p> 
         </footer>
     );
