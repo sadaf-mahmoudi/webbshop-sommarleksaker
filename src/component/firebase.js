@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDGQjPtqGf0wWqSYLG_n-O4QhRVqvyHcVE",
-    authDomain: "webbshop-sommarleksaker.firebaseapp.com",
+    authDomain: "sommarleksaker-2024.surge.sh",  // Uppdatera denna rad
     projectId: "webbshop-sommarleksaker",
     storageBucket: "webbshop-sommarleksaker.appspot.com",
     messagingSenderId: "87780959452",
